@@ -1,4 +1,4 @@
-Adafruit_MCP4706
+MCP4726
 ================
 
 This is a library for the MCP4726 12-bit DAC, based on the
