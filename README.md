@@ -1,7 +1,7 @@
 MCP4726
 ================
 
-This is a library for the MCP4726 12-bit DAC, based on the
+This is an ARDUINO library for the MCP4726 12-bit DAC, based on the
 the Adafruit MCP4725 12-bit I2C DAC Driver library
 
 Tested and works great with the MCP4726
