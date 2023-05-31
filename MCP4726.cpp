@@ -18,6 +18,7 @@
 	@section  HISTORY
 
     v1.0 - First release
+    v1.1 - Use SetClock which is a portable I2C clock frequency selection method.
 */
 /**************************************************************************/
 #if ARDUINO >= 100
@@ -63,12 +64,9 @@ void MCP4726::begin(uint8_t addr) {
 /**************************************************************************/
 void MCP4726::setVoltage( uint16_t output)
 {
-  uint8_t twbrback = TWBR;
-    TWBR = 12; // 400 khz
-  //  TWBR = 72; // 100 khz
+  Wire.setClock(400000);
   Wire.beginTransmission(_i2caddr);
   Wire.write((uint8_t) ((output >> 8) & 0x0F));   // MSB: (D11, D10, D9, D8) 
   Wire.write((uint8_t) (output));  // LSB: (D7, D6, D5, D4, D3, D2, D1, D0)
   Wire.endTransmission();
-  TWBR = twbrback;
 }
